@@ -1,3 +1,9 @@
+/*
+ * p2p_msgnode.h
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #pragma once
 #include "p2p_parse.h"
 

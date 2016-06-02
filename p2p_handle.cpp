@@ -1,3 +1,9 @@
+/*
+ * p2p_handle.cpp
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #include "p2p_handle.h"
 #include "p2p_node.h"
 #include <iostream>

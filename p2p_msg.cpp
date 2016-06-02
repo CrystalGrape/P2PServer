@@ -1,3 +1,9 @@
+/*
+ * p2p_msg.cpp
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #include "p2p_msg.h"
 #include <memory.h>
 //P2pMsg

@@ -1,3 +1,9 @@
+/*
+ * p2p_node.h
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #ifndef P2P_H
 #define P2P_H
 #include <sys/types.h>

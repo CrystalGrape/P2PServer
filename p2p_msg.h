@@ -1,3 +1,9 @@
+/*
+ * p2p_msg.h
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #ifndef P2P_MSG_H
 #define P2P_MSG_H
 #include <iostream>

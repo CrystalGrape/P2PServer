@@ -1,3 +1,9 @@
+/*
+ * p2p_handle.h
+ *
+ *  Created on: 2016-6-2
+ *      Author: jay
+ */
 #ifndef P2P_HANDLE_H
 #define P2P_HANDLE_H
 #include <pthread.h>
