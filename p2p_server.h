@@ -34,6 +34,23 @@ namespace P2pServer
 		Value root;
 	};
 	
+	/*
+	*	消息类
+	*/
+	class P2pMsg
+	{
+	public:
+		P2pMsg(struct sockaddr_in addr, const char *data, int len);
+		//获取解析对象
+		P2pParse GetParse();
+		//获取节点对象
+		P2pNode GetNode(P2pParse parse);
+	private:
+		struct sockaddr_in caddr;
+		int recvlen;
+		char recvdata[8096];
+	};
+	
 	class P2pUdpServer
 	{
 	public:
@@ -41,10 +58,8 @@ namespace P2pServer
 		int ServerInit(int port);
 		//监听端口
 		int Listen();
-		//获取解析对象
-		P2pParse GetParse();
-		//获取节点对象
-		P2pNode GetNode(P2pParse parse);
+		//生成消息类
+		P2pMsg GetMsg();
 	private:
 		int server;
 		struct sockaddr_in addr;

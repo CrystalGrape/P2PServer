@@ -42,7 +42,8 @@ int main()
 	while(1){
 		try{
 			p2pServer.Listen();
-			P2pParse parse = p2pServer.GetParse();
+      P2pMsg msg = p2pServer.GetMsg();
+			//P2pParse parse = p2pServer.GetParse();
 			//这里判断数据包类型，如果是登录包，在这里处理，否则放入队列
 			//P2pNode node = p2pServer.GetNode(parse);
 			//node.GetAddrInfo(ip, port);

@@ -31,7 +31,7 @@ namespace P2pServer
 	private:
 		char node_id[32];
 		struct sockaddr_in node_info;
-		int	lifecycle;
+		int lifecycle;
 	};
 }
 #endif
