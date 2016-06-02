@@ -28,26 +28,23 @@
          佛祖保佑       永无BUG
 */
 
-#include "p2p_server.h"
+#include "p2p.h"
 #include <iostream>
 using namespace std;
-using namespace P2pServer;
-
+#include "p2p_msg.h"
+#include "p2p_handle.h"
+#include "p2p_server.h"
 int main()
 {
+  P2pMsgQueue ql;
 	P2pUdpServer p2pServer;
 	p2pServer.ServerInit(8000);
-	char ip[20];
-	int port;
+  P2pHandle handle(&ql);
 	while(1){
 		try{
 			p2pServer.Listen();
       P2pMsg msg = p2pServer.GetMsg();
-			//P2pParse parse = p2pServer.GetParse();
-			//这里判断数据包类型，如果是登录包，在这里处理，否则放入队列
-			//P2pNode node = p2pServer.GetNode(parse);
-			//node.GetAddrInfo(ip, port);
-			//cout<<"IPAddress:"<<ip<<"["<<port<<"]"<<endl;
+      ql.SendMsg(msg);
 		}catch(int err){
 			cout<<"error code:"<<err<<endl;
 		}
