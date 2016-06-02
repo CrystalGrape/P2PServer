@@ -21,17 +21,14 @@ P2pNode::P2pNode(const char *id, struct sockaddr_in nodeinfo)
 
 void P2pNode::ResetLife()
 {
-	lifecycle = 5;
+	 time(&lifecycle);
 }
 
-void P2pNode::DescLife()
+double P2pNode::GetLife()
 {
-	lifecycle--;
-}
-
-int P2pNode::GetLife()
-{
-	return lifecycle;
+	time_t now;
+	time(&now);
+	return difftime(now, lifecycle);
 }
 
 int P2pNode::GetAddrInfo(_out_ char *addr, _out_ int &port)

@@ -15,10 +15,8 @@ public:
 	P2pNode(const char *id, struct sockaddr_in nodeinfo);
 	//重置生命周期
 	void ResetLife();
-	//减少生命周期
-	void DescLife();
-	//获取生命周期
-	int GetLife();
+	//获取生命周期（当前时间与生命周期的差值）
+	double GetLife();
 	//获取地址信息
 	int GetAddrInfo(_out_ char *addr, _out_ int &port);
 	//获取节点地址
@@ -34,8 +32,8 @@ public:
 	}
 private:
 	char node_id[32];
+	time_t lifecycle;
 	struct sockaddr_in node_info;
-	int lifecycle;
 	char senddata[8096];
 	int sendlen;
 	int sendtimes;		//重发次数

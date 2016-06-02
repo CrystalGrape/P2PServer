@@ -78,11 +78,13 @@ void P2pEvent::CallEvent(Value root, P2pMsg msg)
 
 void P2pEvent::OnHeart(P2pMsg msg)
 {
+	//重置生命周期
+	msg.GetNode(msg.GetParse()).ResetLife();
 }
 
 void P2pEvent::OnRequest(P2pMsg msg)
 {
-
+	printf("%lf\n",msg.GetNode(msg.GetParse()).GetLife());
 }
 
 void P2pEvent::OnRst(P2pMsg msg)
@@ -92,10 +94,8 @@ void P2pEvent::OnRst(P2pMsg msg)
 
 void P2pEvent::OnOnline(P2pMsg msg)
 {
-	static int i = 0;
-	char data[50];
-	sprintf(data,"%d", i);
+	//设置生命周期
 	P2pNode node = msg.GetNode(msg.GetParse());
-	node.RequestSend(data, strlen(data));
-	i++;
+	node.ResetLife();
+	printf("登录了\n");
 }
