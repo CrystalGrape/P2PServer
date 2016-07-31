@@ -21,3 +21,11 @@ int UserMgr::Delete(IdKey key)
 	return 1;
 }
 
+bool UserMgr::Exist(IdKey key)
+{
+	User usr = um.find(key);
+	if(usr == um.end())
+		return false;
+	return true;
+}
+

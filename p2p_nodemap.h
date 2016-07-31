@@ -34,6 +34,7 @@ public:
 	int Insert(P2pNode node);
 	P2pNode &Read(IdKey key);
 	int Delete(IdKey key);
+	bool Exist(IdKey key);
 private:
 	UserMgr(){};
 	UserMgr(const UserMgr &um){};

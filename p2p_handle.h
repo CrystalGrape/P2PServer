@@ -25,6 +25,8 @@ private:
 	void OnRst(P2pMsg msg);
 	/*上线包处理*/
 	void OnOnline(P2pMsg msg);
+	/*终端上线*/
+	void OnDevice(P2pMsg msg);
 	Value pkg;
 };
 

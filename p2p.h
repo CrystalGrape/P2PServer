@@ -17,8 +17,11 @@
 #define P2P_RST			0x7003	//回复包
 #define P2P_STREAM		0x7004	//视频流包
 #define P2P_ONLINE		0x7005	//上线请求
+#define P2P_DEVICE		0x7006  //终端上线
 //错误类型
 #define P2P_ERR_TIMEOUT		0x6001	//超时 
 #define P2P_ERR_PKGWRONG	0x6002	//数据包解析错误
 #define P2P_ERR_QUEEMPTY	0x6003	//队列为空
+#define P2P_ERR_LOGOUT		0x6004	//没有登录
+#define P2P_ERR_NODEST		0x6005	//目标不存在
 #endif

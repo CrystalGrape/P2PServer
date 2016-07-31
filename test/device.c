@@ -30,7 +30,7 @@ int main()
 	}
 
 	char login[500];
-	sprintf(login, "{\"head\":{\"srcid\":\"18408248793\",\"pkgtype\":%d,\"sendtime\":0,\"index\":0},\"playload\":{\"password\":\"inameJay\",\"id\":\"18408248793\"}}", 0x7005);
+	sprintf(login, "{\"head\":{\"srcid\":\"0000001\",\"pkgtype\":%d,\"sendtime\":0,\"index\":0},\"playload\":{\"password\":\"inameJay\",\"id\":\"18408248793\"}}", 0x7006);
 
 	if(sendto(client_socket_fd, login, strlen(login),0,(struct sockaddr*)&server_addr,sizeof(server_addr)) < 0)
 	{
