@@ -6,6 +6,7 @@
  */
 #include "p2p_handle.h"
 #include "p2p_node.h"
+#include "p2p_nodemap.h"
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
@@ -79,12 +80,14 @@ void P2pEvent::CallEvent(Value root, P2pMsg msg)
 void P2pEvent::OnHeart(P2pMsg msg)
 {
 	//重置生命周期
-	msg.GetNode(msg.GetParse()).ResetLife();
+	UserMgr *mgr = UserMgr::GetInstance();
+	mgr->Read(msg.GetParse().GetJsonRoot()["head"]["srcid"].asCString()).ResetLife();
 }
 
 void P2pEvent::OnRequest(P2pMsg msg)
 {
-	printf("%lf\n",msg.GetNode(msg.GetParse()).GetLife());
+	UserMgr *mgr = UserMgr::GetInstance();
+	printf("%lf\n",mgr->Read(msg.GetParse().GetJsonRoot()["head"]["srcid"].asCString()).GetLife());
 }
 
 void P2pEvent::OnRst(P2pMsg msg)
@@ -97,5 +100,6 @@ void P2pEvent::OnOnline(P2pMsg msg)
 	//设置生命周期
 	P2pNode node = msg.GetNode(msg.GetParse());
 	node.ResetLife();
-	printf("登录了\n");
+	UserMgr *mgr = UserMgr::GetInstance();
+	mgr->Insert(node);
 }
